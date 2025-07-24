@@ -1,8 +1,6 @@
 # Repulsyn
 
 A modular repulsorlift and hover movement system for Roblox vehicles.
-**Repulsyn** is a modular, fully configurable repulsorlift and hover movement system for Roblox vehicles.
-
 Designed to support seamless integration across a wide range of vehicles—from land and sea craft to airspeeders—Repulsyn brings precision anti-gravity mechanics to your game.
 **Repulsyn** is a modular, fully configurable repulsorlift and hover movement system for Roblox vehicles. Designed to support seamless integration across a wide range of vehicles—from land and sea craft to airspeeders—Repulsyn brings precision anti-gravity mechanics to your game.
 
