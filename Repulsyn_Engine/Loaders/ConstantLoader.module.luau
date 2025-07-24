@@ -72,7 +72,7 @@ local ClientServices = Client:WaitForChild("Services")
 
 
 -- dynamically grab every config module
-local ConfigLoader = require(ReplicatedStorage.Modules.Config.ConfigLoader)
+local ConfigLoader = require(Loaders.ConfigLoader)
 
 local Constants = {}
 
