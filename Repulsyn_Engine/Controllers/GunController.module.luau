@@ -11,7 +11,9 @@ function GunController:Enable(player)
     -- listen for RemoteEvent “FireWeapon”
     self.FiredConn = game.ReplicatedStorage.RemoteEvents.FireWeapon.OnServerEvent:Connect(function(p, ...)
         if p == player then
-            error("TODO: Implement firing logic for player " .. player.Name)
+            warn("TODO: Implement firing logic for player " .. player.Name)
+            -- Placeholder logic to prevent runtime errors
+            print("Firing logic not implemented yet for player " .. player.Name)
         end
     end)
 end
