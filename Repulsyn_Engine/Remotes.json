@@ -1,0 +1,14 @@
+{
+  "Name": "Remotes",
+  "ClassName": "Folder",
+  "Children": [
+    {
+      "Name": "EnterVehicle",
+      "ClassName": "RemoteEvent"
+    },
+    {
+      "Name": "ExitVehicle",
+      "ClassName": "RemoteEvent"
+    }
+  ]
+}
