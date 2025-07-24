@@ -14,7 +14,7 @@ Designed to support seamless integration across a wide range of vehicles—from 
 - **Fully Configurable** – Tune lift force, damping, hover height, stabilization, and more
 - **Multi-Environment Support** – Designed for land, sea, and air applications
 - **Repulsorlift Physics** – Simulates Star Wars–style hover and gravity-defying motion
-- **Network-Ready** – Supports both client- and server-side synchronization
+- **Network-Ready** – Supports both client-side and server-side synchronization
 
 ---
 
