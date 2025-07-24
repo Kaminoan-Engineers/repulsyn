@@ -1,5 +1,5 @@
 local RS       = game:GetService("ReplicatedStorage")
-local BaseVeh  = require(script.Components.BaseVehicle)
+local BaseVeh  = require(Repulsyn.Components.BaseVehicle)
 
 local vehicles = {}  -- map Model → Vehicle instance
 
