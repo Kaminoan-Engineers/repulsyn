@@ -25,7 +25,8 @@ jobs:
           fi
 
   build-and-test:
-    needs: ${{ github.event_name == 'pull_request' && 'validate-branch' || '' }}
+    needs: [validate-branch]
+    if: ${{ github.event_name != 'pull_request' || success() }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
