@@ -1,0 +1,56 @@
+# .github/workflows/ci.yml
+# This workflow validates branch names and runs Rojo build and test jobs.
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-branch:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name
+        run: |
+          branch="${{ github.head_ref }}"
+          if [[ ! $branch =~ ^(feature|hotfix|chore|release)/[a-z0-9._-]+$ ]]; then
+            echo "✖ Invalid branch name: '$branch'"
+            echo "  Use one of: feature/, hotfix/, chore/, release/"
+            exit 1
+          fi
+
+  build-and-test:
+    needs: validate-branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Luau CLI
+        run: |
+          curl -sSL -o luau.zip \
+            "https://github.com/Roblox/luau/releases/latest/download/luau-linux.zip"
+          unzip -q luau.zip -d luau
+          chmod +x luau/luau
+          sudo mv luau/luau /usr/local/bin/
+
+      - name: Install Rojo
+        run: npm install -g @roblox/rojo
+
+      - name: Build via Rojo
+        run: rojo build -o build/Project.rbxlx
+
+      - name: Lint all `.lua` files
+        run: luau lint .
+
+      - name: Run unit tests
+        run: |
+          for test in tests/*.lua; do
+            luau "$test" || exit 1
+          done
+
